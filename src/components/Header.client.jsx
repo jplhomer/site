@@ -1,4 +1,4 @@
-import useDarkMode from 'use-dark-mode';
+// import useDarkMode from 'use-dark-mode';
 import {useIsClient} from '../lib/use-is-client';
 import {Link} from '@shopify/hydrogen/client';
 import {
@@ -9,8 +9,8 @@ import {
 export default function Header() {
   return (
     <header className="max-w-4xl mx-auto mb-4 flex items-center justify-between px-4 py-6">
-      <Link href="/">
-        <a className="font-bold text-lg">Josh Larson</a>
+      <Link to="/" className="font-bold text-lg">
+        Josh Larson
       </Link>
 
       <nav className="flex items-center">
@@ -24,7 +24,8 @@ export default function Header() {
 }
 
 function DarkModeToggle() {
-  const darkMode = useDarkMode(false, {classNameDark: 'dark'});
+  // DarkMode package cannot be use in SSR because it checks local storage for a stored value
+  // const darkMode = useDarkMode(false, {classNameDark: 'dark'});
   const isClient = useIsClient();
 
   const iconClasses = 'w-5 h-5 inline-block';
@@ -33,14 +34,10 @@ function DarkModeToggle() {
     return (
       <button
         className="inline-flex p-2 ml-2 md:ml-4 hover:bg-gray-200 dark:hover:bg-gray-700"
-        onClick={darkMode.toggle}
         aria-label="Toggle light and dark mode"
       >
-        {darkMode.value ? (
           <Lightbulb className={iconClasses} />
-        ) : (
           <Moon className={iconClasses} />
-        )}
       </button>
     );
   }
@@ -50,10 +47,8 @@ function DarkModeToggle() {
 
 function NavItem({href, children}) {
   return (
-    <Link to={href}>
-      <a className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 ml-2 md:ml-4">
-        {children}
-      </a>
+    <Link to={href} className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 ml-2 md:ml-4">
+      {children}
     </Link>
   );
 }

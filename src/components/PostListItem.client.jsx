@@ -40,8 +40,8 @@ function PostLink({post, href, as, children}) {
 
   if (as) {
     return (
-      <Link to={as}>
-        <a className={classes}>{children}</a>
+      <Link to={as} className={classes}>
+        {children}
       </Link>
     );
   }

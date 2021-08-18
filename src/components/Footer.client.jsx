@@ -9,8 +9,8 @@ export default function Footer() {
         alt="A photo of Josh"
       />
       <div className="mb-4">
-        <Link href="/">
-          <a className="font-bold text-lg">Josh Larson</a>
+        <Link to="/" className="font-bold text-lg">
+          Josh Larson
         </Link>
       </div>
       <div className="mb-4">
@@ -31,8 +31,8 @@ export default function Footer() {
         </a>
       </div>
       <div className="text-xs">
-        <Link to="/archives">
-          <a className="mx-2">Archives</a>
+        <Link to="/archives" className="mx-2">
+          Archives
         </Link>
         <a className="mx-2" href="/rss-feed.xml">
           RSS
