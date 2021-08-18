@@ -9,6 +9,7 @@ import shopifyConfig from './shopify.config';
 export default defineConfig({
   plugins: [hydrogen(shopifyConfig), reactRefresh()],
   resolve: {
-    alias: [{find: '@/', replacement: path.join(__dirname, './src/')}],
+    // This is a shitshow and breaks things. Comment out for now.
+    // alias: [{find: /@\/(.+)$/, replacement: path.join(__dirname, './src/$1')}],
   },
 });

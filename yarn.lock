@@ -568,10 +568,10 @@
     pkg-dir "^5.0.0"
     pluralize "^8.0.0"
 
-"@shopify/hydrogen@^1.0.0-alpha.11":
-  version "1.0.0-alpha.11"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-1.0.0-alpha.11.tgz#05abf6ae1aec68d706e3291671d6b825bb6e81be"
-  integrity sha512-2TAwX9f50vIKzT+seBWxGhIoaCBs6pp2zzGgSFE70AP5mm0zFhQHPJG4x/ktSMzKE0yHZi3ocRd/jQRh5JmoGQ==
+"@shopify/hydrogen@^1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-1.0.0-alpha.13.tgz#8516da1202c4e29d88ceaaa78479599f8184ef3f"
+  integrity sha512-xUNy1V/ZCaBzuWoHC8skAdKu99xVKbuJa+4OI2G5Jl0X+5Xi1RU076o6pzZmcHDkaE3fXqb7bR2sjmRMZDS02Q==
   dependencies:
     "@google-pay/button-react" "^2.3.0"
     connect "^3.7.0"

@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.3",
-    "@shopify/hydrogen": "^1.0.0-alpha.11",
+    "@shopify/hydrogen": "^1.0.0-alpha.13",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "graphql-tag": "^2.12.4",

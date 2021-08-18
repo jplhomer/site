@@ -1,5 +1,5 @@
 import useDarkMode from 'use-dark-mode';
-import {useIsClient} from '@/lib/use-is-client';
+import {useIsClient} from '../lib/use-is-client';
 import {Link} from '@shopify/hydrogen/client';
 import {
   LightBulbIcon as Lightbulb,
