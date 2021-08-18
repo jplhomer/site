@@ -1,12 +1,13 @@
 // import useDarkMode from 'use-dark-mode';
 import {useIsClient} from '../lib/use-is-client';
 import {Link} from '@shopify/hydrogen/client';
-import {
-  LightBulbIcon as Lightbulb,
-  MoonIcon as Moon,
-} from '@heroicons/react/outline';
+// import {
+//   LightBulbIcon as Lightbulb,
+//   MoonIcon as Moon,
+// } from '@heroicons/react/outline';
 
 export default function Header() {
+  const isClient = useIsClient();
   return (
     <header className="max-w-4xl mx-auto mb-4 flex items-center justify-between px-4 py-6">
       <Link to="/" className="font-bold text-lg">
@@ -17,32 +18,10 @@ export default function Header() {
         <NavItem href="/about">About</NavItem>
         <NavItem href="/posts">Posts</NavItem>
         <NavItem href="/glances">Glances</NavItem>
-        <DarkModeToggle />
+        {/* <DarkModeToggle /> */}
       </nav>
     </header>
   );
-}
-
-function DarkModeToggle() {
-  // DarkMode package cannot be use in SSR because it checks local storage for a stored value
-  // const darkMode = useDarkMode(false, {classNameDark: 'dark'});
-  const isClient = useIsClient();
-
-  const iconClasses = 'w-5 h-5 inline-block';
-
-  if (isClient) {
-    return (
-      <button
-        className="inline-flex p-2 ml-2 md:ml-4 hover:bg-gray-200 dark:hover:bg-gray-700"
-        aria-label="Toggle light and dark mode"
-      >
-          <Lightbulb className={iconClasses} />
-          <Moon className={iconClasses} />
-      </button>
-    );
-  }
-
-  return <span className="p-2 ml-2">...</span>;
 }
 
 function NavItem({href, children}) {
