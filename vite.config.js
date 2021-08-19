@@ -12,4 +12,7 @@ export default defineConfig({
     // This is a shitshow and breaks things. Comment out for now.
     // alias: [{find: /@\/(.+)$/, replacement: path.join(__dirname, './src/$1')}],
   },
+  optimizeDeps: {
+    include: ['@heroicons/react/solid', '@heroicons/react/outline'],
+  },
 });

@@ -4,11 +4,13 @@ import {html as intro} from '../prose/intro.md';
 import PostListItem from '../components/PostListItem.client';
 import Link from '../components/Link.client';
 import Seo from '../components/Seo.client';
+import GlancePreview from '../components/GlancePreview';
 import {usePosts} from '../lib/use-posts';
+import {useGlances} from '../lib/use-glances';
 
 export default function Index() {
   const posts = usePosts().slice(0, 5);
-  const glances = [];
+  const glances = useGlances().slice(0, 5);
   const rafterPosts = [];
 
   const {data} = useQuery('https://building.barkpass.com/feed.json', {
@@ -212,11 +214,7 @@ export default function Index() {
         </p>
         <div className="grid gap-4 md:gap-8 grid-cols-3 md:grid-cols-5">
           {glances.map((glance) => (
-            <Link
-              key={glance.slug}
-              to={`/glances/${glance.slug}`}
-              className={styles['glance-preview']}
-            >
+            <Link key={glance.path} to={glance.path}>
               <GlancePreview glance={glance} />
             </Link>
           ))}

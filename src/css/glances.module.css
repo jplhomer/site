@@ -1,0 +1,13 @@
+.glance iframe {
+  max-width: 100%;
+}
+
+.glance-preview .overlay {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .glance-preview:hover .overlay {
+    display: flex;
+  }
+}
