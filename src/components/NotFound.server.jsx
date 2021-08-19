@@ -1,8 +1,20 @@
 import {Link} from '@shopify/hydrogen/client';
+import {useParams} from 'react-router-dom';
+import ArchivePost from './ArchivePost.server';
 
 import Wrapper from './Wrapper';
 
+function mightBePost(slug) {
+  return /^\/[0-9]{4}/.test(slug);
+}
+
 export default function NotFound() {
+  const params = useParams();
+
+  if (mightBePost(params[0])) {
+    return <ArchivePost slug={params[0]} />;
+  }
+
   return (
     <Wrapper>
       <div className="text-center py-10 md:py-40 max-w-2xl mx-auto space-y-6">
