@@ -2,7 +2,7 @@ import {useQuery} from '@shopify/hydrogen';
 
 // import Intro from '@/prose/intro.md';
 // import {PostListItem} from '@/components/PostListItem.client';
-import {Link} from '@shopify/hydrogen/client';
+import Link from '../components/Link.client';
 import Seo from '../components/Seo.client';
 
 export default function Index() {
@@ -210,7 +210,7 @@ export default function Index() {
         <h2 className="font-bold text-2xl mb-4">Glances</h2>
         <p className="mb-8">
           Check out some highlights from my world, or{' '}
-          <Link href="/glances" className="underline">
+          <Link to="/glances" className="underline">
             view them all
           </Link>
           :
