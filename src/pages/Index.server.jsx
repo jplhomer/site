@@ -1,12 +1,13 @@
 import {useQuery} from '@shopify/hydrogen';
 
-// import Intro from '@/prose/intro.md';
-// import {PostListItem} from '@/components/PostListItem.client';
+import {html as intro} from '../prose/intro.md';
+import PostListItem from '../components/PostListItem.client';
 import Link from '../components/Link.client';
 import Seo from '../components/Seo.client';
+import {usePosts} from '../lib/use-posts';
 
 export default function Index() {
-  const posts = [];
+  const posts = usePosts().slice(0, 5);
   const glances = [];
   const rafterPosts = [];
 
@@ -29,20 +30,14 @@ export default function Index() {
           <h1 className="text-4xl font-black mb-4">
             I&apos;m Josh Larson. Nice to meet you!
           </h1>
-          <div className="prose text-lg font-medium leading-relaxed mb-4">
-            {/* <Intro /> */}
-          </div>
+          <div
+            className="prose text-lg font-medium leading-relaxed mb-4"
+            dangerouslySetInnerHTML={{__html: intro}}
+          ></div>
         </div>
         <ul className="mb-4">
           {posts.map((post) => {
-            return (
-              <PostListItem
-                key={post.title}
-                post={post}
-                href="/posts/[slug]"
-                as={`/posts/${post.nextPath}`}
-              />
-            );
+            return <PostListItem key={post.title} post={post} as={post.path} />;
           })}
         </ul>
         <Link

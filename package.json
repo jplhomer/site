@@ -32,7 +32,8 @@
     "prettier": "^2.3.2",
     "stylelint": "^13.13.0",
     "tailwindcss": "^2.2.4",
-    "vite": "^2.5.0-beta.2"
+    "vite": "^2.5.0-beta.2",
+    "vite-plugin-markdown": "^2.0.2"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.3",
@@ -42,6 +43,7 @@
     "graphql-tag": "^2.12.4",
     "react": "18.0.0-alpha-e6be2d531",
     "react-dom": "18.0.0-alpha-e6be2d531",
+    "react-query": "^3.19.6",
     "react-router-dom": "^5.2.0",
     "serve-static": "^1.14.1",
     "use-dark-mode": "^2.3.1"

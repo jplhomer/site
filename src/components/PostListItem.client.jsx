@@ -1,5 +1,4 @@
 import {Link} from '@shopify/hydrogen/client';
-// import {ExternalLinkIcon} from '@heroicons/react/outline';
 
 export default function PostListItem({post, href, as}) {
   const isExternal = Boolean(post.externalUrl);
