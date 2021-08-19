@@ -34,9 +34,9 @@ export default function Footer() {
         <Link to="/archives" className="mx-2">
           Archives
         </Link>
-        <a className="mx-2" href="/rss-feed.xml">
+        {/* <a className="mx-2" href="/rss-feed.xml">
           RSS
-        </a>
+        </a> */}
         <a className="mx-2" href="https://eepurl.com/c0jXpP">
           Newsletter
         </a>
