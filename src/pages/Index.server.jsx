@@ -2,8 +2,8 @@ import {useQuery} from '@shopify/hydrogen';
 
 // import Intro from '@/prose/intro.md';
 // import {PostListItem} from '@/components/PostListItem.client';
-// import {Link} from '@shopify/hydrogen/client';
-// import Seo from '@/components/Seo.client';
+import {Link} from '@shopify/hydrogen/client';
+import Seo from '../components/Seo.client';
 
 export default function Index() {
   const posts = [];
@@ -15,10 +15,8 @@ export default function Index() {
   });
   const barkpassPosts = data.items.map((entry) => ({
     ...entry,
-    date: entry.published_at,
+    date: entry.date_published,
   }));
-
-  return <h1>Hi</h1>;
 
   return (
     <div className="mt-8">
@@ -47,16 +45,18 @@ export default function Index() {
             );
           })}
         </ul>
-        <Link to="/posts">
-          <a className="text-sm text-gray-600 dark:text-gray-300 font-medium">
-            All Posts
-          </a>
+        <Link
+          to="/posts"
+          className="text-sm text-gray-600 dark:text-gray-300 font-medium"
+        >
+          All Posts
         </Link>
         <span className="mx-2">/</span>
-        <Link to="/archives">
-          <a className="text-sm text-gray-600 dark:text-gray-300 font-medium">
-            Archives
-          </a>
+        <Link
+          to="/archives"
+          className="text-sm text-gray-600 dark:text-gray-300 font-medium"
+        >
+          Archives
         </Link>{' '}
         <p className="mt-16 text-lg">
           Here are some <strong>projects</strong> I&apos;ve been building in my
@@ -210,17 +210,19 @@ export default function Index() {
         <h2 className="font-bold text-2xl mb-4">Glances</h2>
         <p className="mb-8">
           Check out some highlights from my world, or{' '}
-          <Link href="/glances">
-            <a className="underline">view them all</a>
+          <Link href="/glances" className="underline">
+            view them all
           </Link>
           :
         </p>
         <div className="grid gap-4 md:gap-8 grid-cols-3 md:grid-cols-5">
           {glances.map((glance) => (
-            <Link key={glance.slug} to={`/glances/${glance.slug}`}>
-              <a className={styles['glance-preview']}>
-                <GlancePreview glance={glance} />
-              </a>
+            <Link
+              key={glance.slug}
+              to={`/glances/${glance.slug}`}
+              className={styles['glance-preview']}
+            >
+              <GlancePreview glance={glance} />
             </Link>
           ))}
         </div>

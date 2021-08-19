@@ -1,5 +1,5 @@
 import {Link} from '@shopify/hydrogen/client';
-import {ExternalLinkIcon} from '@heroicons/react/outline';
+// import {ExternalLinkIcon} from '@heroicons/react/outline';
 
 export default function PostListItem({post, href, as}) {
   const isExternal = Boolean(post.externalUrl);
@@ -57,7 +57,7 @@ function ExternalMark({url}) {
   return (
     <span className="text-gray-600 dark:text-gray-300 whitespace-no-wrap block md:inline-block">
       <span className="text-xs md:ml-2">{new URL(url).host}</span>
-      <ExternalLinkIcon className="w-4 h-4 inline-block ml-1" />
+      {/* <ExternalLinkIcon className="w-4 h-4 inline-block ml-1" /> */}
     </span>
   );
 }
