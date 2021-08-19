@@ -7,12 +7,13 @@ import Seo from '../components/Seo.client';
 import GlancePreview from '../components/GlancePreview';
 import {usePosts} from '../lib/use-posts';
 import {useGlances} from '../lib/use-glances';
-import {useRafterPosts} from '../lib/use-rafter-posts';
+// TODO: xml2js is not compat with Worker runtimes.
+// import {useRafterPosts} from '../lib/use-rafter-posts';
 
 export default function Index() {
   const posts = usePosts().slice(0, 5);
   const glances = useGlances().slice(0, 5);
-  const rafterPosts = useRafterPosts().slice(0, 5);
+  const rafterPosts = [];
 
   const {data} = useQuery('https://building.barkpass.com/feed.json', {
     headers: {accept: 'application/json'},

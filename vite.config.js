@@ -15,4 +15,7 @@ export default defineConfig({
   optimizeDeps: {
     include: ['@heroicons/react/solid', '@heroicons/react/outline'],
   },
+  ssr: {
+    noExternal: ['@cloudflare/kv-asset-handler', '@heroicons/react', 'xml2js'],
+  },
 });

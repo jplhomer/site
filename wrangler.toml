@@ -1,0 +1,14 @@
+name = "site-h2"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[site]
+bucket = "dist/client"
+entry-point = "."
+
+[build]
+upload.format = "service-worker"
+command = "yarn && yarn build"
