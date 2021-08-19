@@ -26,7 +26,7 @@ addEventListener('fetch', (event) => {
     event.respondWith(
       handleEvent(event, {
         entrypoint,
-        indexHtml,
+        indexTemplate: indexHtml,
         assetHandler,
         cache: caches.default,
       }),
