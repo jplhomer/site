@@ -16,6 +16,8 @@ export default defineConfig({
     include: ['@heroicons/react/solid', '@heroicons/react/outline'],
   },
   ssr: {
-    noExternal: ['@cloudflare/kv-asset-handler', '@heroicons/react', 'xml2js'],
+    noExternal: process.env.WORKER
+      ? ['@cloudflare/kv-asset-handler', '@heroicons/react', 'xml2js']
+      : [],
   },
 });
