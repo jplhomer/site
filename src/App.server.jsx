@@ -12,7 +12,13 @@ export default function App({...serverState}) {
 
   return (
     <ShopifyServerProvider shopifyConfig={shopifyConfig} {...serverState}>
-      <Suspense fallback="Loading...">
+      <Suspense
+        fallback={
+          <Layout>
+            <div className="text-center text-2xl min-h-screen">Loading...</div>
+          </Layout>
+        }
+      >
         <Layout>
           <Switch>
             <DefaultRoutes

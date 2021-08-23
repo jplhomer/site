@@ -7,21 +7,13 @@ import Seo from '../components/Seo.client';
 import GlancePreview from '../components/GlancePreview';
 import {usePosts} from '../lib/use-posts';
 import {useGlances} from '../lib/use-glances';
+import {Suspense} from 'react';
 // TODO: xml2js is not compat with Worker runtimes.
 // import {useRafterPosts} from '../lib/use-rafter-posts';
 
 export default function Index() {
-  const posts = usePosts().slice(0, 5);
   const glances = useGlances().slice(0, 5);
   const rafterPosts = [];
-
-  const {data} = useQuery('https://building.barkpass.com/feed.json', {
-    headers: {accept: 'application/json'},
-  });
-  const barkpassPosts = data.items.map((entry) => ({
-    ...entry,
-    date: entry.date_published,
-  }));
 
   return (
     <div className="mt-8">
@@ -39,11 +31,9 @@ export default function Index() {
             dangerouslySetInnerHTML={{__html: intro}}
           ></div>
         </div>
-        <ul className="mb-4">
-          {posts.map((post) => {
-            return <PostListItem key={post.title} post={post} as={post.path} />;
-          })}
-        </ul>
+        <Suspense fallback="Loading...">
+          <PostList />
+        </Suspense>
         <Link
           to="/posts"
           className="text-sm text-gray-600 dark:text-gray-300 font-medium"
@@ -151,22 +141,9 @@ export default function Index() {
             </a>
             :
           </div>
-          <ul className="mb-4">
-            {barkpassPosts.map((post) => (
-              <li className="mb-1 text-sm" key={post.title}>
-                <time
-                  className="text-gray-600 dark:text-gray-300 text-xs w-16 mr-2 inline-block"
-                  dateTime={post.date}
-                >
-                  {new Date(post.date).toLocaleDateString()}
-                </time>
-
-                <a className="underline" href={post.url}>
-                  {post.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <Suspense fallback="Loading...">
+            <BarkpassPosts />
+          </Suspense>
         </Project>
         <Project
           title="Fresa"
@@ -223,6 +200,47 @@ export default function Index() {
         </div>
       </div>
     </div>
+  );
+}
+
+function PostList() {
+  const posts = usePosts().slice(0, 5);
+
+  return (
+    <ul className="mb-4">
+      {posts.map((post) => {
+        return <PostListItem key={post.title} post={post} as={post.path} />;
+      })}
+    </ul>
+  );
+}
+
+function BarkpassPosts() {
+  const {data} = useQuery('https://building.barkpass.com/feed.json', {
+    headers: {accept: 'application/json'},
+  });
+  const barkpassPosts = data.items.map((entry) => ({
+    ...entry,
+    date: entry.date_published,
+  }));
+
+  return (
+    <ul className="mb-4">
+      {barkpassPosts.map((post) => (
+        <li className="mb-1 text-sm" key={post.title}>
+          <time
+            className="text-gray-600 dark:text-gray-300 text-xs w-16 mr-2 inline-block"
+            dateTime={post.date}
+          >
+            {new Date(post.date).toLocaleDateString()}
+          </time>
+
+          <a className="underline" href={post.url}>
+            {post.title}
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }
 
