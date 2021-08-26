@@ -49,8 +49,10 @@ In order to fetch the requested post, I leveraged the `getStaticProps` method. W
 ```js
 // pages/[...slug].js
 
-export async function getStaticProps({ params }) {
-  const res = await fetch(`https://archive.jplhomer.org/wp-json/wp/v2/posts?slug=${params.slug[2]}`);
+export async function getStaticProps({params}) {
+  const res = await fetch(
+    `https://archive.jplhomer.org/wp-json/wp/v2/posts?slug=${params.slug[2]}`,
+  );
   const posts = await res.json();
   const post = posts[0];
 
@@ -68,7 +70,7 @@ Additionally, I needed to define a `getStaticPaths` method to tell Next how to p
 // pages/[...slug].js
 
 export async function getStaticPaths() {
-  const { posts } = await getArchivePosts(10);
+  const {posts} = await getArchivePosts(10);
   const paths = posts.map((post) => ({
     params: {
       slug: post.nextSlug,
@@ -88,7 +90,7 @@ Finally, I wanted to support **paginated archives** for my posts. To do that, I 
 // pages/archives/[pages].js
 
 export async function getStaticPaths() {
-  const paths = [1, 2, 3].map((page) => ({ params: { page: String(page) } }));
+  const paths = [1, 2, 3].map((page) => ({params: {page: String(page)}}));
 
   return {
     paths,
@@ -96,9 +98,12 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
-  const { page } = params;
-  const { posts, total } = await getArchivePosts(PER_PAGE, PER_PAGE * (Number(page) - 1));
+export async function getStaticProps({params}) {
+  const {page} = params;
+  const {posts, total} = await getArchivePosts(
+    PER_PAGE,
+    PER_PAGE * (Number(page) - 1),
+  );
 
   return {
     props: {
@@ -143,16 +148,19 @@ For "dynamic" content like blog posts, I followed the ["Do It Yourself"](https:/
 Then, I used the `fs` package to iterate through the `/posts` directory in my project to parse the Markdown and MDX files. I used the `front-matter` package to strip out the frontmatter and provide it in the output.
 
 ```js
-import { promises as fs } from 'fs';
+import {promises as fs} from 'fs';
 import path from 'path';
 import frontmatter from 'front-matter';
-import { renderMdx } from './mdx';
+import {renderMdx} from './mdx';
 
 const POSTS_PATH = path.resolve(process.cwd(), 'posts');
 
 export async function getPost(postPath, withBody = false) {
-  const content = await fs.readFile(path.resolve(POSTS_PATH, postPath), 'utf-8');
-  const { attributes, body } = frontmatter(content);
+  const content = await fs.readFile(
+    path.resolve(POSTS_PATH, postPath),
+    'utf-8',
+  );
+  const {attributes, body} = frontmatter(content);
   const bodyOutput = withBody ? await renderMdx(body) : '';
 
   // Next.js complains if a legit Date object gets passed through
@@ -172,7 +180,7 @@ export async function getPosts() {
   const posts = await Promise.all(
     paths.map(async (path) => {
       return await getPost(path);
-    })
+    }),
   );
 
   return posts.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -208,13 +216,15 @@ In a [discussion on GitHub](https://github.com/vercel/next.js/issues/9051#issuec
 I ended up merging my MDX posts and WordPress posts together like this:
 
 ```js
-import { getPosts } from '@/lib/posts';
-import { getArchivePosts } from '@/lib/archive-posts';
+import {getPosts} from '@/lib/posts';
+import {getArchivePosts} from '@/lib/archive-posts';
 
-export async function getServerSideProps({ res }) {
+export async function getServerSideProps({res}) {
   const posts = await getPosts();
-  const { posts: archivePosts } = await getArchivePosts();
-  const allPosts = posts.concat(archivePosts).filter((post) => !post.externalUrl);
+  const {posts: archivePosts} = await getArchivePosts();
+  const allPosts = posts
+    .concat(archivePosts)
+    .filter((post) => !post.externalUrl);
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -254,7 +264,7 @@ Here's my [finished script](https://github.com/jplhomer/site/blob/master/scripts
 
 A really cool part about the new site is a section I've named [**Glances**](/glances) 😍:
 
-<video src="/blog/glances_desktop.mp4" autoplay="true" loading="lazy" muted controls playsinline loop />
+<video src="/blog/glances_desktop.mp4" autoplay="true" loading="lazy" muted controls playsinline loop></video>
 
 This is sort of like a **self-hosted Instagram**. I realized I share lots of different photos and videos to different social media platforms, but there's not really a single place where the "highlights" live.
 
@@ -279,9 +289,14 @@ One cool thing to note about glances is the **modal routing support**. You might
 How the heck does that work? There's a [neat example](https://github.com/vercel/next.js/tree/canary/examples/with-route-as-modal) in the official repo. Here are the key parts I used in Glances:
 
 ```jsx
-export default function Glances({ glances }) {
+export default function Glances({glances}) {
   return glances.map((glance) => (
-    <Link key={glance.slug} href={`/glances?glanceSlug=${glance.slug}`} as={`/glances/${glance.slug}`} shallow={true}>
+    <Link
+      key={glance.slug}
+      href={`/glances?glanceSlug=${glance.slug}`}
+      as={`/glances/${glance.slug}`}
+      shallow={true}
+    >
       <a>
         <GlancePreview glance={glance} />
       </a>
@@ -307,8 +322,8 @@ Because I thought it would be fun, I wanted to add Instagram-style "likes" to my
 First, I leveraged a [useLocalStorage](https://usehooks.com/useLocalStorage) hook to sync a given user's "like" status for a glance. I wrapped all of this functionality into my own hook, `useHearts`:
 
 ```js
-import { useLocalStorage } from './use-localstorage';
-import { useMemo } from 'react';
+import {useLocalStorage} from './use-localstorage';
+import {useMemo} from 'react';
 
 export function useHearts(slug, callback) {
   const [glances, setGlances] = useLocalStorage('glance-likes', []);
@@ -365,7 +380,7 @@ export default async (req, res) => {
 
   const ref = db.ref('glance-likes').child(req.body.slug);
 
-  const { snapshot } = await ref.transaction((currentLikes) => {
+  const {snapshot} = await ref.transaction((currentLikes) => {
     if (currentLikes === null || currentLikes === 0) {
       return Math.max(delta, 0);
     }
@@ -384,7 +399,7 @@ Now, whenever the user clicks the heart (or double taps the photo), I `POST` to 
 Finally, I wanted to show the total number of likes for a given glance. I added a handy `useFirebase` hook which let me display realtime data from a given table:
 
 ```js
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import loadDb from '@/lib/db';
 
 export function useFirebase(collection, documentId) {
@@ -420,7 +435,10 @@ export function useFirebase(collection, documentId) {
 I'm using it like this:
 
 ```js
-const [totalLikes, likesLoading, setTotalLikes] = useFirebase('glance-likes', glance.slug);
+const [totalLikes, likesLoading, setTotalLikes] = useFirebase(
+  'glance-likes',
+  glance.slug,
+);
 ```
 
 A couple things to note here:
@@ -437,7 +455,7 @@ When adding my `FIREBASE_PRIVATE_KEY` to Vercel, I was getting an internal serve
 I really wanted to polish the UX for glances, so I implemented **keyboard arrow navigation** support on desktop using a hook called `useKeyboard`:
 
 ```js
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 
 export function useKeyboard(key, callback) {
   useEffect(() => {
@@ -473,13 +491,17 @@ On mobile, Instagram sends you to what _looks like_ a detail screen, but it's re
 To implement this, I added a different query param `?glanceSlugScroll`, which allowed me to determine **which view to display** to the user based on a `useMedia` media query hook:
 
 ```js
-const glanceLinkParam = useMedia(['(min-width: 768px)'], ['glanceSlug'], 'glanceSlugScroll');
+const glanceLinkParam = useMedia(
+  ['(min-width: 768px)'],
+  ['glanceSlug'],
+  'glanceSlugScroll',
+);
 ```
 
 When a mobile user clicks on a post, I set the `glanceScrollSlug` query param, and then scroll them to that position on the page (using a slight delay to allow for some loading):
 
 ```jsx
-export default function Glances({ glances }) {
+export default function Glances({glances}) {
   const isScrollActive = Boolean(router.query.glanceSlugScroll);
 
   // ...
@@ -543,7 +565,11 @@ function DarkModeToggle() {
   if (isClient) {
     return (
       <button onClick={darkMode.toggle} aria-label="Toggle light and dark mode">
-        {darkMode.value ? <Lightbulb className={iconClasses} /> : <Moon className={iconClasses} />}
+        {darkMode.value ? (
+          <Lightbulb className={iconClasses} />
+        ) : (
+          <Moon className={iconClasses} />
+        )}
       </button>
     );
   }
