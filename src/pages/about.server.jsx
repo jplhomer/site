@@ -12,7 +12,10 @@ export default function About() {
       />
       <Heading className="mb-8">So, a little bit about me...</Heading>
 
-      <div className="prose" dangerouslySetInnerHTML={{__html: html}}></div>
+      <div
+        className="prose dark:prose-dark"
+        dangerouslySetInnerHTML={{__html: html}}
+      ></div>
     </Wrapper>
   );
 }

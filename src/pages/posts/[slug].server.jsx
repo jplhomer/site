@@ -10,7 +10,7 @@ export default function Post() {
   } = useQuery(`post-${slug}`, async () => import(`../../posts/${slug}.md`));
 
   return (
-    <div className="max-w-3xl p-4 mx-auto prose">
+    <div className="max-w-3xl p-4 mx-auto prose dark:prose-dark">
       <Seo
         title={attributes.title}
         description={attributes.description ?? ''}
@@ -21,7 +21,7 @@ export default function Post() {
           {new Date(attributes.date).toLocaleDateString()}
         </time>
       </div>
-      <div className="prose" dangerouslySetInnerHTML={{__html: html}}></div>
+      <div dangerouslySetInnerHTML={{__html: html}}></div>
     </div>
   );
 }

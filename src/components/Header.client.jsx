@@ -1,4 +1,10 @@
+import {useDarkMode} from '../lib/use-dark-mode';
+import {useIsClient} from '../lib/use-is-client';
 import {Link} from '@shopify/hydrogen/client';
+import {
+  LightBulbIcon as Lightbulb,
+  MoonIcon as Moon,
+} from '@heroicons/react/outline';
 
 export default function Header() {
   return (
@@ -11,9 +17,35 @@ export default function Header() {
         <NavItem href="/about">About</NavItem>
         <NavItem href="/posts">Posts</NavItem>
         <NavItem href="/glances">Glances</NavItem>
+        <DarkModeToggle />
       </nav>
     </header>
   );
+}
+
+function DarkModeToggle() {
+  const [darkMode, toggleDarkMode] = useDarkMode();
+  const isClient = useIsClient();
+
+  const iconClasses = 'w-5 h-5 inline-block';
+
+  if (isClient) {
+    return (
+      <button
+        className="inline-flex p-2 ml-2 md:ml-4 hover:bg-gray-200 dark:hover:bg-gray-700"
+        onClick={() => toggleDarkMode(!darkMode)}
+        aria-label="Toggle light and dark mode"
+      >
+        {darkMode ? (
+          <Lightbulb className={iconClasses} />
+        ) : (
+          <Moon className={iconClasses} />
+        )}
+      </button>
+    );
+  }
+
+  return <span className="p-2 ml-2">...</span>;
 }
 
 function NavItem({href, children}) {

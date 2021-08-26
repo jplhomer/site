@@ -15,7 +15,7 @@ export default function ArchivePost({slug}) {
           images: openGraphImages,
         }}
       />
-      <div className="max-w-3xl p-4 mx-auto prose">
+      <div className="max-w-3xl p-4 mx-auto prose dark:prose-dark">
         <h1 className="mb-4">{post.title}</h1>
         {post.dek && (
           <div
