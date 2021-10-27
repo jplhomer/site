@@ -1,4 +1,4 @@
-import {useQuery} from 'react-query';
+import {useQuery} from '@shopify/hydrogen';
 
 const endpoint = 'https://archive.jplhomer.org';
 

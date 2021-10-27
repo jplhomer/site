@@ -1,4 +1,4 @@
-import {useQuery} from 'react-query';
+import {useQuery} from '@shopify/hydrogen';
 import {useParams} from 'react-router-dom';
 import Seo from '../../components/Seo.client';
 import {getGlance} from '../../lib/use-glances';

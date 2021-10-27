@@ -1,4 +1,4 @@
-import {useQuery} from 'react-query';
+import {useQuery} from '@shopify/hydrogen';
 
 export function useGlances() {
   const glances = import.meta.glob('../glances/*.md');

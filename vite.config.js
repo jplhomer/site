@@ -1,16 +1,12 @@
 import {defineConfig} from 'vite';
-import reactRefresh from '@vitejs/plugin-react-refresh';
 import hydrogen from '@shopify/hydrogen/plugin';
 import mdPlugin from 'vite-plugin-markdown';
 import hljs from 'highlight.js';
 
-import shopifyConfig from './shopify.config';
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    hydrogen(shopifyConfig),
-    reactRefresh(),
+    hydrogen(),
     mdPlugin({
       markdownIt: {
         highlight: function (str, lang) {
@@ -32,10 +28,5 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['@heroicons/react/solid', '@heroicons/react/outline'],
-  },
-  ssr: {
-    noExternal: process.env.WORKER
-      ? ['@cloudflare/kv-asset-handler', '@heroicons/react', 'xml2js']
-      : [],
   },
 });

@@ -1,4 +1,4 @@
-import {useQuery} from 'react-query';
+import {useQuery} from '@shopify/hydrogen';
 
 export function usePosts() {
   const posts = import.meta.glob('../posts/*.md');

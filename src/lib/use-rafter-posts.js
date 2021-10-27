@@ -1,4 +1,4 @@
-import {useQuery} from 'react-query';
+import {useQuery} from '@shopify/hydrogen';
 import * as xml2js from 'xml2js';
 
 export function useRafterPosts() {
