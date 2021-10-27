@@ -216,9 +216,9 @@ function PostList() {
 }
 
 function BarkpassPosts() {
-  const {data} = useQuery('https://building.barkpass.com/feed.json', {
-    headers: {accept: 'application/json'},
-  });
+  const {data} = useQuery('barkpass-posts', () =>
+    fetch('https://building.barkpass.com/feed.json').then((r) => r.json()),
+  );
   const barkpassPosts = data.items.map((entry) => ({
     ...entry,
     date: entry.date_published,
