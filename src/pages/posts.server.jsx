@@ -1,6 +1,6 @@
 import Seo from '../components/Seo.client';
 import Heading from '../components/Heading';
-import PostListItem from '../components/PostListItem.client';
+import PostListItem from '../components/PostListItem.server';
 import {usePosts} from '../lib/use-posts';
 import Link from '../components/Link.client';
 import Wrapper from '../components/Wrapper';

@@ -1,5 +1,5 @@
 import {useParams} from 'react-router-dom';
-import ArchivePosts from '../../components/ArchivePosts.client';
+import ArchivePosts from '../../components/ArchivePosts.server';
 import {PER_PAGE, useArchivePosts} from '../../lib/use-archive-posts';
 
 export default function ArchivePostsPage() {

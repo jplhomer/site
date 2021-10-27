@@ -2,7 +2,7 @@ import Wrapper from './Wrapper';
 import Link from './Link.client';
 import {PER_PAGE} from '../lib/use-archive-posts';
 import Seo from './Seo.client';
-import PostListItem from './PostListItem.client';
+import PostListItem from './PostListItem.server';
 import Heading from './Heading';
 
 export default function ArchivePosts({posts, total, page = 1}) {

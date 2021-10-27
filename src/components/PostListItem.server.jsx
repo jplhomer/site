@@ -1,4 +1,5 @@
-import {Link} from '@shopify/hydrogen/client';
+import Link from './Link.client';
+import ViewCounter from './ViewCounter.server';
 
 export default function PostListItem({post, href, as}) {
   const isExternal = Boolean(post.externalUrl);
@@ -11,6 +12,7 @@ export default function PostListItem({post, href, as}) {
             <span className="align-middle">{post.title}</span>
             {isExternal && <ExternalMark url={post.externalUrl} />}
           </div>
+          {!isExternal ? <ViewCounter id={post.path} /> : <span></span>}
         </div>
         <div>
           <time
