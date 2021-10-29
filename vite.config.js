@@ -29,4 +29,14 @@ export default defineConfig({
   optimizeDeps: {
     include: ['@heroicons/react/solid', '@heroicons/react/outline'],
   },
+  build: process.env.WORKER
+    ? {
+        rollupOptions: {
+          output: {
+            format: 'es',
+            entryFileNames: '[name].mjs',
+          },
+        },
+      }
+    : {},
 });
