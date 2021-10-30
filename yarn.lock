@@ -753,10 +753,10 @@
     pkg-dir "^5.0.0"
     pluralize "^8.0.0"
 
-"@shopify/hydrogen@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.3.0.tgz#4cc6b2250252c2f273fb8dd7c76722d8e0d0b121"
-  integrity sha512-nZDZn+eDygKT+W4Itz+/rRAmciAYPA1z7x+r2vq3y4oHOo18rhDYeUu08UlpSV3IzXLVebSE2y9PcTwv5caTTQ==
+"@shopify/hydrogen@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.4.3.tgz#cbef337df063b8e3b00b972ee2b455d10924a519"
+  integrity sha512-+fTFgAtJGR+C1SB+uGdjqKhIh70m7UBhjSZbqRJpjOkM077BV6vbv8L7wt/kBqfbrSewBMjHIfYKInipOhDuBQ==
   dependencies:
     "@vitejs/plugin-react" "^1.0.0"
     connect "^3.7.0"
@@ -2589,6 +2589,20 @@ flatted@^3.1.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.2.tgz#64bfed5cb68fe3ca78b3eb214ad97b63bedce561"
   integrity sha512-JaTY/wtrcSyvXJl4IMFHPKyFur1sE9AUqc0QnhOaJ0CxHtAoIV8pYDzeEfAaNEtGkOfq4gr3LBFmdXW5mOQFnA==
+
+focus-trap-react@^8.8.2:
+  version "8.8.2"
+  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-8.8.2.tgz#ac374819cddd8937b8687eaf7f351b3c10ed3c34"
+  integrity sha512-YgacIMxeAOytHOEbzBWL7+itBkn4ARMwQhtt6hYVHqHzPUPhmfEyKJ/nqsyMerzOK1DzlDv8Q8phRAY8vpa0rA==
+  dependencies:
+    focus-trap "^6.7.1"
+
+focus-trap@^6.7.1:
+  version "6.7.1"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.7.1.tgz#d474f86dbaf3c7fbf0d53cf0b12295f4f4068d10"
+  integrity sha512-a6czHbT9twVpy2RpkWQA9vIgwQgB9Nx1PIxNNUxQT4nugG/3QibwxO+tWTh9i+zSY2SFiX4pnYhTaFaQF/6ZAg==
+  dependencies:
+    tabbable "^5.2.1"
 
 form-data@4.0.0:
   version "4.0.0"
@@ -5260,6 +5274,11 @@ sync-fetch@0.3.0:
   dependencies:
     buffer "^5.7.0"
     node-fetch "^2.6.1"
+
+tabbable@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-5.2.1.tgz#e3fda7367ddbb172dcda9f871c0fdb36d1c4cd9c"
+  integrity sha512-40pEZ2mhjaZzK0BnI+QGNjJO8UYx9pP5v7BGe17SORTO0OEuuaAwQTkAp8whcZvqon44wKFOikD+Al11K3JICQ==
 
 table@^6.0.9, table@^6.6.0:
   version "6.7.1"
