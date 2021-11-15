@@ -216,10 +216,19 @@ function PostList() {
 }
 
 function BarkpassPosts() {
-  const {data} = useQuery('barkpass-posts', () =>
-    fetch('https://building.barkpass.com/feed.json').then((r) => r.json()),
+  const {data} = useQuery(
+    'barkpass-posts',
+    () =>
+      fetch('https://building.barkpass.com/feed.json').then((r) => r.json()),
+    {
+      retry: false,
+      cache: {
+        maxAge: 60,
+        staleWhileRevalidate: 60 * 60 * 12,
+      },
+    },
   );
-  const barkpassPosts = data.items.map((entry) => ({
+  const barkpassPosts = data.map((entry) => ({
     ...entry,
     date: entry.date_published,
   }));
