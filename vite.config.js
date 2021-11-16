@@ -32,6 +32,7 @@ export default defineConfig({
   build: process.env.WORKER
     ? {
         rollupOptions: {
+          external: ['__STATIC_CONTENT_MANIFEST'],
           output: {
             format: 'es',
             entryFileNames: '[name].mjs',

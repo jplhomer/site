@@ -46,7 +46,6 @@
     "express": "^4.17.1",
     "graphql-tag": "^2.12.4",
     "highlight.js": "^11.2.0",
-    "mime": "^2.5.2",
     "react": "18.0.0-alpha-e6be2d531",
     "react-dom": "18.0.0-alpha-e6be2d531",
     "react-router-dom": "^5.2.0",

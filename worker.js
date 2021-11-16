@@ -2,21 +2,24 @@ import handleEvent from '@shopify/hydrogen/worker';
 import entrypoint from './src/entry-server.jsx';
 // eslint-disable-next-line node/no-missing-import
 import indexHtml from './dist/client/index.html?raw';
-import mime from 'mime';
+import {getAssetFromKV} from '@cloudflare/kv-asset-handler';
+import manifestJSON from '__STATIC_CONTENT_MANIFEST';
+const assetManifest = JSON.parse(manifestJSON);
 
-function createAssetHandler(env) {
-  return async function assetHandler(_event, url) {
-    // TODO: This doesn't work because we're missing an asset manifest.
-    // This is a wrangler issue.
-    console.log(`asset ${url}`);
-    const assetUrl = new URL(url);
-    const assetKey = assetUrl.pathname.slice(1);
-    const mimeType = mime.getType(assetKey) || 'text/plain';
-
-    console.log(`asset key ${assetKey}`);
-    const body = await env.__STATIC_CONTENT.get(assetKey, 'arrayBuffer');
-    const response = new Response(body);
-    response.headers.set('Content-Type', mimeType);
+function createAssetHandler(env, context) {
+  return async function assetHandler(event, url) {
+    const response = await getAssetFromKV(
+      {
+        request: event.request,
+        waitUntil(promise) {
+          return context.waitUntil(promise);
+        },
+      },
+      {
+        ASSET_NAMESPACE: env.__STATIC_CONTENT,
+        ASSET_MANIFEST: assetManifest,
+      },
+    );
 
     if (response.status < 400) {
       const filename = url.pathname.split('/').pop();
@@ -41,7 +44,7 @@ export default {
         {
           entrypoint,
           indexTemplate: indexHtml,
-          assetHandler: createAssetHandler(env),
+          assetHandler: createAssetHandler(env, context),
           cache: caches.default,
         },
       );
