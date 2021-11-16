@@ -5,36 +5,56 @@ const endpoint = 'https://archive.jplhomer.org';
 export const PER_PAGE = 10;
 
 export function useArchivePosts(perPage = 100, offset = 0) {
-  const {data} = useQuery(`archive-posts-${perPage}-${offset}`, async () => {
-    const url = `${endpoint}/wp-json/wp/v2/posts?per_page=${perPage}&offset=${offset}`;
-    const res = await fetch(url);
+  const {data} = useQuery(
+    `archive-posts-${perPage}-${offset}`,
+    async () => {
+      const url = `${endpoint}/wp-json/wp/v2/posts?per_page=${perPage}&offset=${offset}`;
+      const res = await fetch(url);
 
-    const total = res.headers.get('X-WP-Total');
-    const posts = await res.json();
+      const total = res.headers.get('X-WP-Total');
+      const posts = await res.json();
 
-    posts.forEach((post) => preparePostObject(post));
+      posts.forEach((post) => preparePostObject(post));
 
-    return {
-      posts,
-      total,
-    };
-  });
+      return {
+        posts,
+        total,
+      };
+    },
+    {
+      retry: false,
+      cache: {
+        maxAge: 60,
+        staleWhileRevalidate: 60 * 60 * 12,
+      },
+    },
+  );
 
   return data;
 }
 
 export function useArchivePost(slug) {
-  const {data} = useQuery(`archive-post-${slug}`, async () => {
-    const res = await fetch(
-      `${endpoint}/wp-json/wp/v2/posts?slug=${slug}&_embed`,
-    );
-    const posts = await res.json();
-    const post = posts[0];
+  const {data} = useQuery(
+    `archive-post-${slug}`,
+    async () => {
+      const res = await fetch(
+        `${endpoint}/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+      );
+      const posts = await res.json();
+      const post = posts[0];
 
-    preparePostObject(post);
+      preparePostObject(post);
 
-    return post;
-  });
+      return post;
+    },
+    {
+      retry: false,
+      cache: {
+        maxAge: 60,
+        staleWhileRevalidate: 60 * 60 * 12,
+      },
+    },
+  );
 
   return data;
 }
