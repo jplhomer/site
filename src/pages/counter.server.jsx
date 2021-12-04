@@ -24,3 +24,10 @@ export async function api({request}) {
 
   return new Response(count);
 }
+
+/**
+ * No-op to avoid warnings in console in `DefaultRoutes`
+ */
+export default function Counter() {
+  return 'no-op';
+}
