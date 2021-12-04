@@ -1,5 +1,6 @@
 import Seo from './Seo.client';
 import {useArchivePost} from '../lib/use-archive-posts';
+import ViewCounter from './ViewCounter.server';
 
 export default function ArchivePost({slug}) {
   const post = useArchivePost(slug.split('/').pop());
@@ -27,6 +28,7 @@ export default function ArchivePost({slug}) {
           <time dateTime={new Date(post.date).toISOString()}>
             {new Date(post.date).toLocaleDateString()}
           </time>
+          <ViewCounter id={post.slug} shouldIncrement={true} />
         </div>
         <div dangerouslySetInnerHTML={{__html: post.content.rendered}} />
       </div>
