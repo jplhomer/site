@@ -92,6 +92,7 @@ export class Counter {
   async fetch(request) {
     // Apply requested action.
     let url = new URL(request.url);
+    let newValue = url.searchParams.get('value');
     let currentValue = this.value;
     switch (url.pathname) {
       case '/increment':
@@ -100,6 +101,11 @@ export class Counter {
         break;
       case '/decrement':
         currentValue = --this.value;
+        await this.state.storage.put('value', this.value);
+        break;
+      case '/set':
+        currentValue = newValue;
+        this.value = currentValue;
         await this.state.storage.put('value', this.value);
         break;
       case '/':
@@ -119,8 +125,6 @@ export class Counter {
 }
 
 function getMatchingApiPage(request) {
-  if (request.method === 'GET') return;
-
   const url = new URL(request.url);
 
   // TODO: Obviously need to take into account dynamic paths, etc.
