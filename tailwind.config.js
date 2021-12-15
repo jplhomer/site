@@ -52,6 +52,10 @@ module.exports = {
             strong: {
               color: theme('colors.gray.100'),
             },
+
+            code: {
+              color: theme('colors.gray.100'),
+            },
           },
         },
       }),
