@@ -82,6 +82,8 @@ Whenever I encounter another person who is super ego-driven, it really turns me 
 
 Humility is a superpower. It allows you to put your shield down, be curious, and ask questions. When you're not humble, it's easy to become arrogant and ignore new ideas.
 
+You don't want to be _too humble_, though. Sometimes it's best to acknowledge something or take credit and move on. Otherwise, it can be a distraction or even a detractor from the work.
+
 I've also had to reckon with my own ego in the past year. When working on a high-profile project like Hydrogen, it's easy to get swept up in the hype of it all and get a big head.
 
 Discarding my ego has been a continual, intentional process. I have to constantly remind myself: "I'm not doing this for me; I'm doing it as part of a larger goal."
@@ -128,6 +130,10 @@ So, reality check. Here are some outcomes of the work I've done in the past year
 - Oh, and [this website is built with Hydrogen](https://github.com/jplhomer/site) 😊
 
 I'm quite happy with how the year has gone.
+
+One thing that's resonated with me is the idea that [building things should be fun](https://www.youtube.com/watch?v=FPNZkPqUFIU). At the end of the day, I'm building cool things, and it should be fun to do those things.
+
+I want to surround myself with people who take their work seriously but don't take themselves too seriously.
 
 ## What's next?
 
