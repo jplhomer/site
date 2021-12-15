@@ -16,7 +16,7 @@ In December 2021, I started on the performance team. We focused on measuring and
 
 What a terrific team that was! Everyone was super humble, empathetic, and genuinely smart.
 
-A few months into 2021, I got pulled into a new project we now know as [Hydrogen](https://hydrogen.shopify.dev/). This project started as a close collaboration with our CEO [Tobi](https://twitter.com/tobi) and another developer [Cathryn](https://twitter.com/c_a_t_h_r_y_n).
+A few months into 2021, I got pulled into a new project now known as [Hydrogen](https://hydrogen.shopify.dev/). This started as a close collaboration with our CEO [Tobi](https://twitter.com/tobi), [Cathryn](https://twitter.com/c_a_t_h_r_y_n), [Duncan](https://duncan.dev/) and a few other people.
 
 Tobi [announced Hydrogen at Unite](https://www.youtube.com/watch?v=FPNZkPqUFIU) in June, and we launched the [developer preview](https://hydrogen.shopify.dev/) in November.
 
