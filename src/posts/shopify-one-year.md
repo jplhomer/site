@@ -1,6 +1,6 @@
 ---
 title: One Year at Shopify
-date: 2020-12-14
+date: 2021-12-14
 description: I've been working at Shopify for one year now. Here's what I've learned.
 ---
 
