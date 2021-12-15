@@ -8,9 +8,9 @@ I've been working at Shopify for one year now.
 
 Before I joined Shopify, I'd determined that my next career goals were roughly the following:
 
-1. Build something cool and new with experimental technology, like JavaScript or edge computing
-2. Gain the respect of my peers for my work
-3. Make an impact and be recognized for that impact by company leadership
+1. Build something cool and new with experimental technology, like JavaScript or edge computing.
+2. Gain the respect of my peers for my the work I do.
+3. Make an impact and be recognized for that impact by company leadership.
 
 In December 2021, I started on the performance team. We focused on measuring and improving the speed of Shopify's online stores — *and there are a bunch of online stores*.
 
@@ -44,7 +44,7 @@ I'm trying to get better at this!
 
 When we started building Hydrogen, we had a decision to make.
 
-Every other modern JavaScript framework had invented their own way of fetching data for a given route, hydrating that on the page, and fetching more data for future page navigations on the client (sorry if this made no sense to you — this is OK).
+Every other modern JavaScript framework had invented their own way of fetching data for a given route, hydrating that on the page, and fetching more data for future page navigations on the client. _If these words made no sense to you, don't worry — it doesn't matter_.
 
 It felt icky to be inventing yet another unique strategy when this cool new experimental thing called [React Server Components](https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html) had been announced last December.
 
@@ -88,13 +88,13 @@ I've also had to reckon with my own ego in the past year. When working on a high
 
 Discarding my ego has been a continual, intentional process. I have to constantly remind myself: "I'm not doing this for me; I'm doing it as part of a larger goal."
 
-This isn't easy! I'll get occasional reminders that "sting." Someone else getting credit for a thing I built, someone else getting to ship that big new feature, etc.
+This isn't easy! I'll get occasional reminders that "sting." Someone else getting credit for a thing I helped build, someone else getting to ship that big new feature, etc.
 
-But these tradeoffs have benefits! New people get exposure to a project, new people get to advance in their careers, and new people get to share the burden of ownership and maintenance.
+But these tradeoffs have benefits. New people get exposure to a project, new people get to advance in their careers, and new people get to share the burden of ownership and maintenance.
 
 ## Managing Expectations
 
-I think humility and ego tie closely into one of the most critical things I've learned this year: **managing expectations**.
+I think humility and ego are closely related to one of the most critical things I've learned this year: **managing expectations**.
 
 When you're working on a team in "stealth mode" on an exciting new project, it's easy to let your mind run wild and get super hyped on something.
 
@@ -133,23 +133,23 @@ I'm quite happy with how the year has gone.
 
 One thing that's resonated with me is the idea that [building things should be fun](https://www.youtube.com/watch?v=FPNZkPqUFIU). At the end of the day, I'm building cool things, and it should be fun to do those things.
 
-I want to surround myself with people who take their work seriously but don't take themselves too seriously.
+I want to surround myself with people who take their _work_ seriously but don't take _themselves_ too seriously.
 
 ## What's next?
 
 Revisiting the career goals I'd determined before joining Shopify:
 
 1. Build something cool and new with experimental technology, like JavaScript or edge computing. **Hydrogen is an experimental JavaScript technology built for the edge (Oxygen)**.
-2. Gain the respect of my peers for my work. **My peers are great, and I think there's a mutual respect**.
+2. Gain the respect of my peers for my the work I do. **My peers are great, and I think there's a mutual respect**.
 3. Make an impact and be recognized for that impact by company leadership. **Yep, this happened**.
 
-So what do I do next? I do not know. I will keep working at Shopify, and I will try to do a good job.
+So what's next? I do not know.
 
 I don't think it's realistic to "top" the year I've had. Some of this comes back to setting below-average expectations, but I think it's important to realize that a lot of projects _don't_ succeed and _don't_ have impact. I need to be prepared for that.
 
-One path forward is to become a hashtag thought leader on social media and tweet about React constantly. I would need to say controversial things to get picked up by the algorithm. Then I could tour the world and speak at conferences about React and JavaScript and what's in and what's not and get promoted and then tweet some more.
+One path forward is to become a #thoughtleader on social media and tweet about React constantly. I would need to say controversial things to get picked up by the algorithm. Then I could tour the world and speak at conferences about React and JavaScript and what's in and what's not and get promoted and then tweet some more.
 
-In practice, I find it very hard to do this. It just ain't me. So I'll continue to be myself.
+In practice, I find it very hard to do this. It just ain't me. So I guess I'll continue to be myself.
 
 In the meantime, I'm going to double-down on **human relationships** at work — fostering team culture, mentoring (and being mentored), and continuing to learn.
 
