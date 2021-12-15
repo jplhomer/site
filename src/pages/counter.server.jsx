@@ -19,7 +19,7 @@ export async function api({request}) {
 
   const objId = counter.idFromName(id);
   const obj = counter.get(objId);
-  const res = await obj.fetch(new URL(`http://localhost:3000/increment`));
+  const res = await obj.fetch(new URL('/increment', 'http://localhost:3000'));
   const count = await res.text();
 
   return new Response(count);

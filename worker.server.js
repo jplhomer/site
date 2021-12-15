@@ -5,9 +5,11 @@ import indexHtml from './dist/client/index.html?raw';
 import {getAssetFromKV} from '@cloudflare/kv-asset-handler';
 import manifestJSON from '__STATIC_CONTENT_MANIFEST';
 import {setCounter} from './src/counter.js';
+import {
+  getMatchingApiPage,
+  respondWithMatchingApiPage,
+} from './src/framework/api.server.js';
 const assetManifest = JSON.parse(manifestJSON);
-
-const pages = import.meta.globEager('/src/pages/**/*.server.jsx');
 
 function createAssetHandler(env, context) {
   return async function assetHandler(event, url) {
@@ -116,36 +118,4 @@ export class Counter {
     // request in `currentValue` before we used `await`.
     return new Response(currentValue);
   }
-}
-
-function getMatchingApiPage(request) {
-  if (request.method === 'GET') return;
-
-  const url = new URL(request.url);
-
-  // TODO: Obviously need to take into account dynamic paths, etc.
-  const matchingPage = Object.keys(pages).find((page) => {
-    const match = page.match(/^\/src\/pages\/(.+)\.server\.(?:j|t)sx?/)?.[1];
-
-    return match === url.pathname.replace(/^\//, '');
-  });
-
-  if (!matchingPage) return;
-
-  const page = pages[matchingPage];
-
-  if (!page.api) return;
-
-  return page;
-}
-
-async function respondWithMatchingApiPage(request) {
-  const matchingPage = getMatchingApiPage(request);
-
-  // TODO: Cast string responses to `Response`s.
-  // TODO: Cast object responses to `Response`s.
-  // TODO: Handle errors.
-  const response = await matchingPage.api({request});
-
-  return response;
 }
