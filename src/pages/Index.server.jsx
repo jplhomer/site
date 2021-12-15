@@ -218,8 +218,15 @@ function PostList() {
 function BarkpassPosts() {
   const {data} = useQuery(
     'barkpass-posts',
-    () =>
-      fetch('https://building.barkpass.com/feed.json').then((r) => r.json()),
+    async () => {
+      const res = await fetch('https://building.barkpass.com/feed.json');
+
+      if (res.ok) {
+        return await res.json();
+      }
+
+      return [];
+    },
     {
       retry: false,
       cache: {
