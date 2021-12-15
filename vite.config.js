@@ -64,7 +64,7 @@ function tempApiMiddleware() {
             res.statusCode = response.status;
             res.setHeader(
               'Content-Type',
-              response.headers.get('content-type') ?? 'text/html',
+              response.headers.get('content-type') || 'text/html',
             );
             res.end(await response.text());
             return next();
