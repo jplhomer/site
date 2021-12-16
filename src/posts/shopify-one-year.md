@@ -9,7 +9,7 @@ I've been working at Shopify for one year now.
 Before I joined Shopify, I'd determined that my next career goals were roughly the following:
 
 1. Build something cool and new with experimental technology, like JavaScript or edge computing.
-2. Gain the respect of my peers for my the work I do.
+2. Gain the respect of my peers for the work I do.
 3. Make an impact and be recognized for that impact by company leadership.
 
 In December 2021, I started on the performance team. We focused on measuring and improving the speed of Shopify's online stores — *and there are a bunch of online stores*.
@@ -140,7 +140,7 @@ I want to surround myself with people who take their _work_ seriously but don't 
 Revisiting the career goals I'd determined before joining Shopify:
 
 1. Build something cool and new with experimental technology, like JavaScript or edge computing. **Hydrogen is an experimental JavaScript technology built for the edge (Oxygen)**.
-2. Gain the respect of my peers for my the work I do. **My peers are great, and I think there's a mutual respect**.
+2. Gain the respect of my peers for the work I do. **My peers are great, and I think there's a mutual respect**.
 3. Make an impact and be recognized for that impact by company leadership. **Yep, this happened**.
 
 So what's next? I do not know.
