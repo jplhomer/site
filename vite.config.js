@@ -37,7 +37,16 @@ export default defineConfig({
           },
         },
       }
-    : {},
+    : {
+        rollupOptions: {
+          external: ['__STATIC_CONTENT_MANIFEST'],
+
+          output: {
+            format: 'es',
+            entryFileNames: '[name].mjs',
+          },
+        },
+      },
 });
 
 /**
