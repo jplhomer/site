@@ -5,13 +5,14 @@ workers_dev = true
 route = ""
 zone_id = ""
 compatibility_date = "2021-11-06"
+compatibility_flags = ["streams_enable_constructors"]
 
 [site]
 bucket = "dist/client"
 entry-point = "."
 
 [build]
-command = "yarn && yarn build"
+command = "echo 'do nothing - we build in GH actions manually'"
 
 [build.upload]
 dir = "dist/worker"

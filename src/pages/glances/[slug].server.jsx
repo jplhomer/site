@@ -1,11 +1,10 @@
 import {useQuery} from '@shopify/hydrogen';
-import {useParams} from 'react-router-dom';
 import Seo from '../../components/Seo.client';
 import {getGlance} from '../../lib/use-glances';
 import Glance from '../../components/Glance.client';
 
-export default function GlancePost() {
-  const {slug} = useParams();
+export default function GlancePost({params}) {
+  const {slug} = params;
   const {data: glance} = useQuery(`glance-${slug}`, async () => {
     const markdownModule = await import(`../../glances/${slug}.md`);
     return await getGlance(markdownModule);

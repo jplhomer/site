@@ -1,34 +1,28 @@
-import {ShopifyServerProvider, DefaultRoutes} from '@shopify/hydrogen';
-import {Switch} from 'react-router-dom';
+import {DefaultRoutes} from '@shopify/hydrogen';
 import {Suspense} from 'react';
-
-import shopifyConfig from '../shopify.config';
 
 import NotFound from './components/NotFound.server';
 import Layout from './components/Layout.client';
+import AppClient from './App.client';
 
 export default function App({...serverState}) {
-  const pages = import.meta.globEager('./pages/**/*.server.(jsx|tsx)');
-
   return (
-    <ShopifyServerProvider shopifyConfig={shopifyConfig} {...serverState}>
-      <Suspense
-        fallback={
-          <Layout>
-            <div className="text-center text-2xl min-h-screen">Loading...</div>
-          </Layout>
-        }
-      >
+    <Suspense
+      fallback={
         <Layout>
-          <Switch>
-            <DefaultRoutes
-              pages={pages}
-              serverState={serverState}
-              fallback={<NotFound />}
-            />
-          </Switch>
+          <div className="text-center text-2xl min-h-screen">Loading...</div>
         </Layout>
-      </Suspense>
-    </ShopifyServerProvider>
+      }
+    >
+      <AppClient helmetContext={serverState.helmetContext}>
+        <Layout>
+          <DefaultRoutes
+            pages={serverState.pages}
+            serverState={serverState}
+            fallback={<NotFound />}
+          />
+        </Layout>
+      </AppClient>
+    </Suspense>
   );
 }

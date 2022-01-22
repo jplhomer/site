@@ -5,10 +5,6 @@ import indexHtml from './dist/client/index.html?raw';
 import {getAssetFromKV} from '@cloudflare/kv-asset-handler';
 import manifestJSON from '__STATIC_CONTENT_MANIFEST';
 import {setCounter} from './src/counter.js';
-import {
-  getMatchingApiPage,
-  respondWithMatchingApiPage,
-} from './src/framework/api.server.js';
 const assetManifest = JSON.parse(manifestJSON);
 
 function createAssetHandler(env, context) {
@@ -48,14 +44,6 @@ function createAssetHandler(env, context) {
 export default {
   async fetch(request, env, context) {
     setCounter(env.COUNTER);
-
-    /**
-     * Hydrogen is going to support this `api` feature in the future.
-     * For now, we short-circuit it here.
-     */
-    if (getMatchingApiPage(request)) {
-      return await respondWithMatchingApiPage(request);
-    }
 
     try {
       return await handleEvent(

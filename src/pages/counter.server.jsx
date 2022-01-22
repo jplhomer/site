@@ -1,6 +1,6 @@
 import {getCounter} from '../counter';
 
-export async function api({request}) {
+export async function api(request) {
   if (request.method !== 'POST') {
     throw new Error('You must use a POST request.');
   }
@@ -23,11 +23,4 @@ export async function api({request}) {
   const count = await res.text();
 
   return new Response(count);
-}
-
-/**
- * No-op to avoid warnings in console in `DefaultRoutes`
- */
-export default function Counter() {
-  return 'no-op';
 }

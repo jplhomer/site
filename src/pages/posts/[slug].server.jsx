@@ -1,10 +1,9 @@
 import {useQuery} from '@shopify/hydrogen';
-import {useParams} from 'react-router-dom';
 import Seo from '../../components/Seo.client';
 import ViewCounter from '../../components/ViewCounter.server';
 
-export default function Post() {
-  const {slug} = useParams();
+export default function Post({params}) {
+  const {slug} = params;
 
   const {
     data: {attributes, html},

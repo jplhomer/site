@@ -31,18 +31,18 @@
     "prettier": "^2.3.2",
     "stylelint": "^13.13.0",
     "tailwindcss": "^2.2.4",
-    "vite": "^2.7.2",
+    "vite": "^2.7.13",
     "vite-plugin-markdown": "^2.0.2",
     "xml2js": "^0.4.23"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.1.3",
     "@heroicons/react": "^1.0.3",
-    "@shopify/hydrogen": "^0.8.0",
+    "@shopify/hydrogen": "^0.10.0-experimental.1",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "highlight.js": "^11.2.0",
-    "react": "18.0.0-alpha-e6be2d531",
-    "react-dom": "18.0.0-alpha-e6be2d531",
+    "react": "^0.0.0-experimental-13036bfbc-20220121",
+    "react-dom": "^0.0.0-experimental-13036bfbc-20220121",
     "react-router-dom": "^5.2.0"
   }
 }
