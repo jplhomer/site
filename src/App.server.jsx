@@ -7,14 +7,14 @@ import AppClient from './App.client';
 
 export default function App({...serverState}) {
   return (
-    <Suspense
-      fallback={
-        <Layout>
-          <div className="text-center text-2xl min-h-screen">Loading...</div>
-        </Layout>
-      }
-    >
-      <AppClient helmetContext={serverState.helmetContext}>
+    <AppClient helmetContext={serverState.helmetContext}>
+      <Suspense
+        fallback={
+          <Layout>
+            <div className="text-center text-2xl min-h-screen">Loading...</div>
+          </Layout>
+        }
+      >
         <Layout>
           <DefaultRoutes
             pages={serverState.pages}
@@ -22,7 +22,7 @@ export default function App({...serverState}) {
             fallback={<NotFound />}
           />
         </Layout>
-      </AppClient>
-    </Suspense>
+      </Suspense>
+    </AppClient>
   );
 }

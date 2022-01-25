@@ -977,10 +977,10 @@
     pkg-dir "^5.0.0"
     pluralize "^8.0.0"
 
-"@shopify/hydrogen@^0.10.0-experimental.1":
-  version "0.10.0-experimental.1"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.10.0-experimental.1.tgz#95928cf15a4405b41590241a10cf145700ed7c0e"
-  integrity sha512-9fD8QYVU9oBv1989eJli13TtZN4bBz/uK59UmZUmCh0TXp+21UrbsuV6wWxI9QTq0VpG3e7jRddTkF8PDWfNsA==
+"@shopify/hydrogen@^0.10.0-experimental.4":
+  version "0.10.0-experimental.4"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.10.0-experimental.4.tgz#ee3555f08502450d75c1e5fc27fb7520507128fd"
+  integrity sha512-LVLp6kW7OSVifHrP3gkgsEwLWFN5aA0SJTbghTeoIZvqMdaAn0o5cFh6XUAb/C6b8lVZm1nb//MR8quCQtstwQ==
   dependencies:
     "@vitejs/plugin-react" "^1.1.1"
     abort-controller "^3.0.0"
@@ -4529,14 +4529,14 @@ raw-body@2.4.2:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dom@^0.0.0-experimental-13036bfbc-20220121:
-  version "0.0.0-experimental-13036bfbc-20220121"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-experimental-13036bfbc-20220121.tgz#e86308353e79131695c7964f3d27efd8d9c3df67"
-  integrity sha512-46kguwVBG7W1w5jtdISkM8fLdQzuw5kKo11CvfWCnqSjzJyNf/1tJ56lZ3H41mUkI5AM7sU76J2e9uoXbld3MQ==
+react-dom@0.0.0-experimental-529dc3ce8-20220124:
+  version "0.0.0-experimental-529dc3ce8-20220124"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-experimental-529dc3ce8-20220124.tgz#62408979d684b43a5bea27934fda15fa31a80f2a"
+  integrity sha512-FNqeU2sPoynTu7Sh1IY880Bxg/xX22tlsTHoh67J+PTY7aFBAYMgE5PkxZon54DpQkv2p8gWVIIzSObi4U7ZjQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    scheduler "0.0.0-experimental-13036bfbc-20220121"
+    scheduler "0.0.0-experimental-529dc3ce8-20220124"
 
 react-error-boundary@^3.1.3:
   version "3.1.3"
@@ -4605,10 +4605,10 @@ react-router@5.2.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react@^0.0.0-experimental-13036bfbc-20220121:
-  version "0.0.0-experimental-13036bfbc-20220121"
-  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-experimental-13036bfbc-20220121.tgz#88daa7086c93a5d99bb7c2582ea7eb59a44f8a32"
-  integrity sha512-6Pz9rm1GmEWFUGK4jN8oRr3KoT5td/Zdc28nvVT3BcKaaYVcN3oIcd9CV2pj6CdR4V3r38zO3xbnT0YVskmdXg==
+react@0.0.0-experimental-529dc3ce8-20220124:
+  version "0.0.0-experimental-529dc3ce8-20220124"
+  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-experimental-529dc3ce8-20220124.tgz#843efb350b3034c5cb5d3d657ece78a8057b7a2b"
+  integrity sha512-EGC2hJU4tjaVgcLHE090M592h+AfO6Y88cnS1XtPMHWBgsNpO4t3rZfLFU4bMor3wRSKPEIzmEcpaPWCrJWctA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -4821,10 +4821,10 @@ saxes@^5.0.1:
   dependencies:
     xmlchars "^2.2.0"
 
-scheduler@0.0.0-experimental-13036bfbc-20220121:
-  version "0.0.0-experimental-13036bfbc-20220121"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.0.0-experimental-13036bfbc-20220121.tgz#4c0bb55523a4a01d7643ef0c3c3641cd24e00765"
-  integrity sha512-JClqq9+auS4rrr10SqKiGTWdK6/RQ1qhWwEt5IhrM5fHbh7QOuBv4wZwgO9elZBQwzYMYpz25rMS2wYe3ETpOA==
+scheduler@0.0.0-experimental-529dc3ce8-20220124:
+  version "0.0.0-experimental-529dc3ce8-20220124"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.0.0-experimental-529dc3ce8-20220124.tgz#4c3da241ae995e2790688e2a775e7db2e26f9d0f"
+  integrity sha512-mp0MaDWUfFuByyQS3syKFF3pqk7m6NcIsTNFsu/7jdy0GCqk7jy3T2YgHF3S1Y0qNhV9TYCgGwLTZSNaae2uUQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
