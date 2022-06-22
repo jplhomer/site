@@ -1,4 +1,4 @@
-import handleEvent from '@shopify/hydrogen/worker';
+import handleRequest from './src/App.server';
 import entrypoint from './src/entry-server.jsx';
 // eslint-disable-next-line node/no-missing-import
 import indexHtml from './dist/client/index.html?raw';

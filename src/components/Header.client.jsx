@@ -1,6 +1,6 @@
 import {useDarkMode} from '../lib/use-dark-mode';
 import {useIsClient} from '../lib/use-is-client';
-import {Link} from '@shopify/hydrogen/client';
+import {Link} from '@shopify/hydrogen';
 import {
   LightBulbIcon as Lightbulb,
   MoonIcon as Moon,

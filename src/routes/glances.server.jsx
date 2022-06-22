@@ -2,7 +2,7 @@ import Wrapper from '../components/Wrapper';
 import Heading from '../components/Heading';
 import Seo from '../components/Seo.client';
 import GlancePreview from '../components/GlancePreview';
-import Link from '../components/Link.client';
+import {Link} from '@shopify/hydrogen';
 import {useGlances} from '../lib/use-glances';
 
 export default function Glances() {

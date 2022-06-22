@@ -1,5 +1,4 @@
-import {Link} from '@shopify/hydrogen/client';
-import {useParams} from 'react-router-dom';
+import {useRouteParams, Link} from '@shopify/hydrogen';
 import ArchivePost from './ArchivePost.server';
 
 import Wrapper from './Wrapper';
@@ -9,7 +8,7 @@ function mightBePost(slug) {
 }
 
 export default function NotFound() {
-  const params = useParams();
+  const params = useRouteParams();
 
   if (mightBePost(params[0])) {
     return <ArchivePost slug={params[0]} />;

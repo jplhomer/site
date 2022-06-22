@@ -1,8 +1,7 @@
-import {useQuery} from '@shopify/hydrogen';
+import {useQuery, Link} from '@shopify/hydrogen';
 
 import {html as intro} from '../prose/intro.md';
 import PostListItem from '../components/PostListItem.server';
-import Link from '../components/Link.client';
 import Seo from '../components/Seo.client';
 import GlancePreview from '../components/GlancePreview';
 import {usePosts} from '../lib/use-posts';

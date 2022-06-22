@@ -2,7 +2,7 @@ import Seo from '../components/Seo.client';
 import Heading from '../components/Heading';
 import PostListItem from '../components/PostListItem.server';
 import {usePosts} from '../lib/use-posts';
-import Link from '../components/Link.client';
+import {Link} from '@shopify/hydrogen';
 import Wrapper from '../components/Wrapper';
 
 export default function Posts() {

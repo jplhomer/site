@@ -1,9 +1,9 @@
 import Wrapper from './Wrapper';
-import Link from './Link.client';
 import {PER_PAGE} from '../lib/use-archive-posts';
 import Seo from './Seo.client';
 import PostListItem from './PostListItem.server';
 import Heading from './Heading';
+import {Link} from '@shopify/hydrogen';
 
 export default function ArchivePosts({posts, total, page = 1}) {
   const hasNextPage = Math.ceil(total / PER_PAGE) > page;

@@ -1,28 +1,28 @@
-import {DefaultRoutes} from '@shopify/hydrogen';
+import {FileRoutes, Route, Router} from '@shopify/hydrogen';
 import {Suspense} from 'react';
+import renderHydrogen from '@shopify/hydrogen/entry-server';
 
 import NotFound from './components/NotFound.server';
 import Layout from './components/Layout.client';
-import AppClient from './App.client';
+import LayoutFallback from './components/LayoutFallback';
 
-export default function App({...serverState}) {
+function App({routes}) {
   return (
     <Suspense
       fallback={
-        <Layout>
+        <LayoutFallback>
           <div className="text-center text-2xl min-h-screen">Loading...</div>
-        </Layout>
+        </LayoutFallback>
       }
     >
-      <AppClient helmetContext={serverState.helmetContext}>
+      <Router>
         <Layout>
-          <DefaultRoutes
-            pages={serverState.pages}
-            serverState={serverState}
-            fallback={<NotFound />}
-          />
+          <FileRoutes routes={routes} />
+          <Route path="*" page={<NotFound />} />
         </Layout>
-      </AppClient>
+      </Router>
     </Suspense>
   );
 }
+
+export default renderHydrogen(App);

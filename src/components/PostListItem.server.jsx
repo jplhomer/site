@@ -1,4 +1,4 @@
-import Link from './Link.client';
+import {Link} from '@shopify/hydrogen';
 import ViewCounter from './ViewCounter.server';
 import {ExternalLinkIcon} from '@heroicons/react/outline';
 

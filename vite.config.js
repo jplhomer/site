@@ -6,7 +6,7 @@ import hljs from 'highlight.js';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    hydrogen({}, {devCache: true}),
+    hydrogen({devCache: true}),
     mdPlugin({
       markdownIt: {
         highlight: function (str, lang) {
