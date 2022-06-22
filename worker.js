@@ -44,6 +44,16 @@ async function handleAsset(request, env, context, url) {
 
 export default {
   async fetch(request, env, context) {
+    // Rewrite any incoming requests to https://jplhomer.org to https://www.jplhomer.org
+    if (request.url.startsWith('https://jplhomer.org')) {
+      return new Response('Redirecting', {
+        status: 301,
+        headers: {
+          location: 'https://www.jplhomer.org',
+        },
+      });
+    }
+
     setCounter(env.COUNTER);
 
     const url = new URL(request.url);
