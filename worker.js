@@ -1,5 +1,4 @@
 import handleRequest from './src/App.server';
-import entrypoint from './src/entry-server.jsx';
 // eslint-disable-next-line node/no-missing-import
 import indexHtml from './dist/client/index.html?raw';
 import {getAssetFromKV} from '@cloudflare/kv-asset-handler';
@@ -7,15 +6,15 @@ import manifestJSON from '__STATIC_CONTENT_MANIFEST';
 import {setCounter} from './src/counter.js';
 const assetManifest = JSON.parse(manifestJSON);
 
-function createAssetHandler(env, context) {
-  return async function assetHandler(event, url) {
-    /**
-     * A somewhat clunky workaround for asset fetching for Cloudflare Workers Sites with module syntax.
-     * Cloudflare introduced a way better way to do this with `env.assets` with Pages `_worker.js` outputs.
-     */
+async function handleAsset(request, env, context, url) {
+  /**
+   * A somewhat clunky workaround for asset fetching for Cloudflare Workers Sites with module syntax.
+   * Cloudflare introduced a way better way to do this with `env.assets` with Pages `_worker.js` outputs.
+   */
+  try {
     const response = await getAssetFromKV(
       {
-        request: event.request,
+        request,
         waitUntil(promise) {
           return context.waitUntil(promise);
         },
@@ -38,23 +37,25 @@ function createAssetHandler(env, context) {
     }
 
     return response;
-  };
+  } catch (e) {
+    // Do nothing
+  }
 }
 
 export default {
   async fetch(request, env, context) {
     setCounter(env.COUNTER);
 
+    const url = new URL(request.url);
+
     try {
-      return await handleEvent(
-        {request},
-        {
-          entrypoint,
+      return (
+        (await handleAsset(request, env, context, url)) ??
+        handleRequest(request, {
           indexTemplate: indexHtml,
-          assetHandler: createAssetHandler(env, context),
           cache: caches.default,
           context,
-        },
+        })
       );
     } catch (error) {
       return new Response(error.message || error.toString(), {

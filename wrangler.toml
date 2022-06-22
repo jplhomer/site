@@ -1,24 +1,16 @@
 name = "site-h2"
-type = "javascript"
 account_id = ""
 workers_dev = true
-route = ""
-zone_id = ""
+route = "jplhomer.org"
 compatibility_date = "2021-11-06"
 compatibility_flags = ["streams_enable_constructors"]
+main = "dist/worker/index.js"
 
 [site]
 bucket = "dist/client"
-entry-point = "."
 
 [build]
 command = "echo 'do nothing - we build in GH actions manually'"
-
-[build.upload]
-dir = "dist/worker"
-# The "modules" upload format is required for all projects that export a Durable Objects class
-format = "modules"
-main = "./worker.server.mjs"
 
 [durable_objects]
 bindings = [{name = "COUNTER", class_name = "Counter"}]
