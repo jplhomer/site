@@ -13,7 +13,7 @@ export default function About() {
       <Heading className="mb-8">So, a little bit about me...</Heading>
 
       <div
-        className="prose dark:prose-dark"
+        className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{__html: html}}
       ></div>
     </Wrapper>

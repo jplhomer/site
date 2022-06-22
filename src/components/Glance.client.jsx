@@ -17,7 +17,7 @@ export default function Glance({glance, className}) {
       <div className="md:w-1/3 flex-shrink-0 p-4 bg-white dark:bg-gray-800">
         <article className="flex flex-col justify-between h-full">
           <div
-            className="mb-2 prose dark:prose-dark text-sm"
+            className="mb-2 prose dark:prose-invert text-sm"
             dangerouslySetInnerHTML={{__html: glance.html}}
           ></div>
 

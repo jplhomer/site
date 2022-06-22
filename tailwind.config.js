@@ -1,12 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-  mode: 'jit',
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
-  variants: {
-    extend: {},
-  },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
@@ -26,35 +22,6 @@ module.exports = {
               '&:hover': {
                 color: theme('colors.blue.700'),
               },
-            },
-          },
-        },
-
-        dark: {
-          css: {
-            color: theme('colors.gray.100'),
-
-            a: {
-              color: theme('colors.blue.100'),
-              '&:hover': {
-                color: theme('colors.blue.100'),
-              },
-            },
-
-            h1: {
-              color: theme('colors.gray.100'),
-            },
-
-            h2: {
-              color: theme('colors.gray.100'),
-            },
-
-            strong: {
-              color: theme('colors.gray.100'),
-            },
-
-            code: {
-              color: theme('colors.gray.100'),
             },
           },
         },

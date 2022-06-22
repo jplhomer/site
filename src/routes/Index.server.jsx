@@ -26,7 +26,7 @@ export default function Index() {
             I&apos;m Josh Larson. Nice to meet you!
           </h1>
           <div
-            className="prose dark:prose-dark text-lg font-medium leading-relaxed mb-4"
+            className="prose dark:prose-invert text-lg font-medium leading-relaxed mb-4"
             dangerouslySetInnerHTML={{__html: intro}}
           ></div>
         </div>

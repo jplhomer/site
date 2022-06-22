@@ -10,7 +10,7 @@ export default function Post({params}) {
   } = useQuery(`post-${slug}`, async () => import(`../../posts/${slug}.md`));
 
   return (
-    <div className="max-w-3xl p-4 mx-auto prose dark:prose-dark">
+    <div className="max-w-3xl p-4 mx-auto prose dark:prose-invert">
       <Seo
         title={attributes.title}
         description={attributes.description ?? ''}
