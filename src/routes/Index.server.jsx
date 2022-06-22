@@ -83,12 +83,36 @@ export default function Index() {
           .
         </Project>
         <Project
+          title="Barkpass"
+          image="https://www.barkpass.com/images/tag_data.jpg"
+          status="Launched"
+          buttonText="Visit Barkpass"
+          buttonUrl="https://www.barkpass.com"
+          flipped
+        >
+          <div className="mb-4">
+            Launched in 2019, Barkpass is a pet licensing and dog park
+            management software-as-a-service created by Bri and me. We have one
+            customer so far, but we&apos;re looking to expand soon. Be sure to
+            check out the blog,{' '}
+            <a
+              className="font-medium underline"
+              href="https://building.barkpass.com"
+            >
+              Building Barkpass
+            </a>
+            :
+          </div>
+          <Suspense fallback="Loading...">
+            <BarkpassPosts />
+          </Suspense>
+        </Project>
+        <Project
           title="Rafter"
           image="/rafter.jpg"
-          status="In Progress"
+          status="Archived"
           buttonText="View on GitHub"
           buttonUrl="https://github.com/rafter-platform/rafter-alpha"
-          flipped
         >
           <div className="mb-4">
             Rafter is an open-source serverless deployment platform built on top
@@ -121,30 +145,6 @@ export default function Index() {
           </ul>
         </Project>
         <Project
-          title="Barkpass"
-          image="https://www.barkpass.com/images/barkpass_dashboard.jpg"
-          status="Launched"
-          buttonText="Visit Barkpass"
-          buttonUrl="https://www.barkpass.com"
-        >
-          <div className="mb-4">
-            Launched in 2019, Barkpass is a pet licensing and dog park
-            management software-as-a-service created by Bri and me. We have one
-            customer so far, but we&apos;re looking to expand soon. Be sure to
-            check out the blog,{' '}
-            <a
-              className="font-medium underline"
-              href="https://building.barkpass.com"
-            >
-              Building Barkpass
-            </a>
-            :
-          </div>
-          <Suspense fallback="Loading...">
-            <BarkpassPosts />
-          </Suspense>
-        </Project>
-        <Project
           title="Fresa"
           image="/fresa.jpg"
           status="Launched"
@@ -159,14 +159,13 @@ export default function Index() {
         <Project
           title="Full-Stack Fundamentals"
           image="/fsf.jpg"
-          status="On Hold"
+          status="Archived"
           buttonText="Visit Website"
-          buttonUrl="https://fullstackfundamentals.com"
         >
           In 2018, I started an educational website where I&apos;d planned to
           record screencasts of all the cool things I learned. As it turns out,
           this was a lot more time-consuming than I thought, and the site never
-          took off. But it&apos;s still out there!
+          took off.
         </Project>
         <Project
           title="Lifeboat"
@@ -278,23 +277,29 @@ function Project({
         <div className="mb-8 md:mb-0 md:w-1/2 md:px-4">
           <div className="flex">
             <h2 className="inline-flex text-xl tracking-tight leading-10 font-bold sm:leading-none mr-4">
-              <a href={buttonUrl}>{title}</a>
+              {buttonUrl ? (
+                <a href={buttonUrl}>{title}</a>
+              ) : (
+                <span>{title}</span>
+              )}
             </h2>
             <ProjectBadge>{status}</ProjectBadge>
           </div>
           <div className="mt-3 mb-3 text-base sm:mt-5 md:mt-5 md:mb-5">
             {children}
           </div>
-          <span className="inline-flex rounded-md shadow-sm">
+          {buttonUrl && (
             <span className="inline-flex rounded-md shadow-sm">
-              <a
-                href={buttonUrl}
-                className="inline-flex items-center px-4 py-2 border border-gray-300 text-base leading-6 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150"
-              >
-                {buttonText}
-              </a>
+              <span className="inline-flex rounded-md shadow-sm">
+                <a
+                  href={buttonUrl}
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 text-base leading-6 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150"
+                >
+                  {buttonText}
+                </a>
+              </span>
             </span>
-          </span>
+          )}
         </div>
         <div className="md:w-1/2  md:px-4">
           <img
