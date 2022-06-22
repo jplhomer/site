@@ -1,4 +1,4 @@
-import {useQuery} from '@shopify/hydrogen';
+import {CacheLong, useQuery} from '@shopify/hydrogen';
 
 const endpoint = 'https://archive.jplhomer.org';
 
@@ -22,11 +22,7 @@ export function useArchivePosts(perPage = 100, offset = 0) {
       };
     },
     {
-      retry: false,
-      cache: {
-        maxAge: 60,
-        staleWhileRevalidate: 60 * 60 * 12,
-      },
+      cache: CacheLong(),
     },
   );
 
@@ -48,11 +44,7 @@ export function useArchivePost(slug) {
       return post;
     },
     {
-      retry: false,
-      cache: {
-        maxAge: 60,
-        staleWhileRevalidate: 60 * 60 * 12,
-      },
+      cache: CacheLong(),
     },
   );
 

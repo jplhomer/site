@@ -1,4 +1,4 @@
-import {useQuery, Link} from '@shopify/hydrogen';
+import {Link, CacheLong, fetchSync} from '@shopify/hydrogen';
 
 import {html as intro} from '../prose/intro.md';
 import PostListItem from '../components/PostListItem.server';
@@ -214,25 +214,10 @@ function PostList() {
 }
 
 function BarkpassPosts() {
-  const {data} = useQuery(
-    'barkpass-posts',
-    async () => {
-      const res = await fetch('https://building.barkpass.com/feed.json');
+  const data = fetchSync('https://building.barkpass.com/feed.json', {
+    cache: CacheLong(),
+  }).json();
 
-      if (res.ok) {
-        return await res.json();
-      }
-
-      return [];
-    },
-    {
-      retry: false,
-      cache: {
-        maxAge: 60,
-        staleWhileRevalidate: 60 * 60 * 12,
-      },
-    },
-  );
   const barkpassPosts = data.map((entry) => ({
     ...entry,
     date: entry.date_published,

@@ -1,5 +1,5 @@
 import {Suspense} from 'react';
-import {useQuery} from '@shopify/hydrogen';
+import {CacheShort, useQuery} from '@shopify/hydrogen';
 import {getCounter} from '../counter';
 import ViewCounterClient from './ViewCounter.client';
 
@@ -31,10 +31,7 @@ function ViewsFor({id, shouldIncrement}) {
       return count;
     },
     {
-      cache: {
-        maxAge: 4,
-        staleWhileRevalidate: 10,
-      },
+      cache: CacheShort(),
     },
   );
 
