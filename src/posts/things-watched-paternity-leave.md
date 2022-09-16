@@ -1,6 +1,6 @@
 ---
 title: All of the things I watched while on paternity leave
-date: 2022-09-07
+date: 2022-09-16
 description: I like watching TV. Get out of here, books.
 ---
 
