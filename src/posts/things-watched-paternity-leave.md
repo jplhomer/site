@@ -4,6 +4,8 @@ date: 2022-09-07
 description: I like watching TV. Get out of here, books.
 ---
 
+[Shopify](https://www.shopify.com) gives non-birth parents three months of parental leave, and I've spent most of the summer at home with our new baby, Joel.
+
 When you have a newborn, you spend a lot of time sitting and feeding the newborn or keeping it company. Watching TV and movies is one way to pass the time.
 
 Here's a list of things I watched along with some commentary. This does not include most children's programming or the constant cycle of _Parks and Recreation_ we watch during lunch.
