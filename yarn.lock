@@ -1331,10 +1331,10 @@
     web-streams-polyfill "^3.2.0"
     worktop "^0.7.3"
 
-"@shopify/hydrogen@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-1.0.0.tgz#05413124dd3b856e3b560a788fddfd06326133d6"
-  integrity sha512-IMeXt9N+iIZFTLS3irlwm/7ydAL2W4g3G+MnhMLd8gVQ58Kv1FeQGuKwrXpBLfO979mfCEB8wnG8SiK4Ug7i6Q==
+"@shopify/hydrogen@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-1.3.2.tgz#4892a3423b43a13c15052146c07f337df59b6863"
+  integrity sha512-iMlL9IGXLcfrYeOJFrHVKYL0CEIgQAHdpYjcCp6K0TPI9p1tW3fbz9t2Po/W7ydE2HDK7xnVRt6DbHJo4oAgKQ==
   dependencies:
     "@vitejs/plugin-react" "^1.3.0"
     abort-controller "^3.0.0"
@@ -1351,10 +1351,10 @@
     node-fetch "^2.6.7"
     path-to-regexp "^6.2.0"
     react-error-boundary "^3.1.3"
-    react-helmet-async "^1.2.3"
+    react-helmet-async "^1.3.0"
     serve-static "^1.15.0"
     set-cookie-parser "^2.5.0"
-    undici "^5.5.1"
+    undici "^5.8.2"
     uuid "^8.3.2"
     vite-plugin-inspect "^0.3.6"
     web-streams-polyfill "^3.2.0"
@@ -5420,7 +5420,7 @@ react-fast-compare@^3.2.0:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
-react-helmet-async@^1.2.3:
+react-helmet-async@^1.2.3, react-helmet-async@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.3.0.tgz#7bd5bf8c5c69ea9f02f6083f14ce33ef545c222e"
   integrity sha512-9jZ57/dAn9t3q6hneQS0wukqC2ENOBgMNVEhb/ZG9ZSxUetzVIw4iAmEU38IaVg3QGYauQPhSeUTuIUtFglWpg==
@@ -6441,6 +6441,11 @@ undici@5.5.1, undici@^5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/undici/-/undici-5.5.1.tgz#baaf25844a99eaa0b22e1ef8d205bffe587c8f43"
   integrity sha512-MEvryPLf18HvlCbLSzCW0U00IMftKGI5udnjrQbC5D4P0Hodwffhv+iGfWuJwg16Y/TK11ZFK8i+BPVW2z/eAw==
+
+undici@^5.8.2:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.10.0.tgz#dd9391087a90ccfbd007568db458674232ebf014"
+  integrity sha512-c8HsD3IbwmjjbLvoZuRI26TZic+TSEe8FPMLLOkN1AfYRhdjnKBU6yL+IwcSCbdZiX4e5t0lfMDLDCqj4Sq70g==
 
 universalify@^2.0.0:
   version "2.0.0"
